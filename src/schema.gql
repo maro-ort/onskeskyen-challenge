@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreatePaymentNoteInput {
+  paymentNotePeriodFromDateTime: DateTime!
+  paymentNotePeriodToDateTime: DateTime!
+}
+
+type CreatePaymentResponse {
+  error: String!
+  success: Boolean!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createPayment(input: CreatePaymentNoteInput!): CreatePaymentResponse!
+}
+
+type PaymentNote {
+  paymentNoteCreatedDateTime: DateTime!
+  paymentNotePeriodFromDateTime: DateTime!
+  paymentNotePeriodToDateTime: DateTime!
+  paymentNoteStatusCode: PaymentNoteStatusCode!
+  paymentNoteTransactionsCount: Float!
+  paymentNoteUuid: ID!
+  paymentNoteValue: Float!
+}
+
+enum PaymentNoteStatusCode {
+  COMPLETED
+  CREATING
+}
+
+type Query {
+  getPaymentNoteTransactions(id: String!): [Transaction!]!
+  getPaymentNotes: [PaymentNote!]!
+}
+
+type Transaction {
+  transactionDateTime: DateTime!
+  transactionPaymentNoteUuid: String!
+  transactionStatusCode: TransactionStatusCode!
+  transactionUuid: ID!
+  transactionValue: Float!
+}
+
+enum TransactionStatusCode {
+  PAID
+  PENDING
+}
