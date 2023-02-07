@@ -9,6 +9,10 @@ The database is deployable with `docker-compose up` (add `-d` flag to detach), t
 To import the database the following command should do the trick:
 `$ mysql -h localhost -P 3306 --protocol=tcp -u maro -p maro-challenge < transaction.sql`
 
+#### DB UI
+
+There is also a docker container with `adminer` (alternative to `phpMyAdmin`) at [http://localhost:8080/](http://localhost:8080/)
+
 ### Run
 
 Use NPM or Yarn to install libraries and run the app.
@@ -21,6 +25,7 @@ The app runs on port `3000` by default, a **GraphQL** playground is available at
 
 | ❗ | If you find any problems running the app or need more detailed explanations please let the author know. He will be happy to help! |
 |----|---------------------------------------------------------------------------------------------------------|
+
 
 ## Questions
 
